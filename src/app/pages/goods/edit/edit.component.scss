@@ -1,0 +1,51 @@
+@import '../../../app.component.scss';
+* {
+  color: $textColor;
+}
+.product-form {
+    display: flex;
+    justify-content: center;
+    height: 500px;
+    position: fixed; 
+    top: 80px;
+    right: 0;
+    bottom: 0;
+    left: 600px;
+    transition: all 0.5s ease;
+  }
+  mat-form-field {
+      display: block;
+      width: 300px;
+  }
+  .short-textarea {
+    resize: none !important; 
+    height: 40px;
+  }
+  .description-textarea {
+    resize: none !important;
+    height: 80px;
+  }
+  mat-card {
+      display: flex;
+      justify-content: center;
+  
+  }
+  .mat-card-img {
+      margin-top: 20px !important;
+      height: 250px;
+      width: 250px;
+      background-color: rgb(101, 99, 99);
+  }
+  mat-card-title {
+      margin-bottom: 20px;
+      text-align: center;
+  }
+  mat-card-actions {
+    margin-top: 10px;
+    display: flex;
+    justify-content: space-between;
+  }
+  button {
+    background-color:#5d5d5d;
+  }
+ 

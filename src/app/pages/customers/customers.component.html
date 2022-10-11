@@ -1,0 +1,17 @@
+<mat-form-field class="search-input" appearance="fill" color="accent">
+    <mat-label>Search</mat-label>
+    <input type="text" matInput  placeholder="Search" [(ngModel)]="inputSearch">
+    <button *ngIf="inputSearch"  matSuffix mat-icon-button aria-label="Clear" (click)="inputSearch=''">
+      <mat-icon>close</mat-icon>
+    </button>
+  </mat-form-field>
+<table mat-table>
+    <tr *ngFor="let item of carts | searchCart: inputSearch; index as i; " 
+      >
+        <td class="table-phone"><span>{{item.phone_number | phoneFormat}}</span></td>
+        <td class="table-date"><span>{{item.createdAt | date: 'd:M:YYYY'}}</span></td>
+        <td class="table-custom-btn">
+          <a routerLink="../order/{{item.id}}"><button mat-raised-button>Custom</button></a></td>
+      </tr>
+  </table>
+  <button class="refresh" mat-mini-fab color="accent" (click)="refresh()"><mat-icon>refresh</mat-icon></button>

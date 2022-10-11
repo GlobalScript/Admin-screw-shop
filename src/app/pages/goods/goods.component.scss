@@ -1,0 +1,40 @@
+@import '../../app.component.scss';
+
+table {
+    color: $textColor;
+    margin:0 20px 20px 20px;
+    width: 95%;
+    border-collapse: collapse;
+  }
+td {
+    padding: 10px;
+    border-bottom: 1px solid rgb(80, 73, 73);
+}
+.table-short {
+    width: 50%;
+}
+.table-delete button {
+    color: $textColor;
+    margin-right:20px;
+}
+.table-edit button {
+    color: $textColor;
+}
+img {
+    height: 80px;
+    width: 80px;
+    object-fit: contain;
+}
+.selectProduct {
+    color: $selectColor;
+}
+.deleteProduct {
+    color:#F44336;
+}
+.search-input {
+    color: $textColor;
+    margin: 20px 0 0 20px;
+    width: 95%;
+}
+
+  

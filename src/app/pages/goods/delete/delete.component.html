@@ -1,0 +1,7 @@
+<mat-card>
+    <mat-card-subtitle>The product will be removed from the database</mat-card-subtitle>
+    <mat-card-actions >
+        <button mat-raised-button color="warn" [disabled]="disabled" (click)="submitDelete()">Delete</button>
+        <button mat-raised-button class="delete-close" [disabled]="disabled" (click)="close()">Close</button>
+    </mat-card-actions>
+  </mat-card>

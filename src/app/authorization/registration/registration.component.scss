@@ -1,0 +1,30 @@
+@import '../../app.component.scss';
+* {
+    color: $textColor;
+}
+form {
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+  }
+  mat-card-header {
+    display: flex;
+    justify-content: center;
+  }
+  .submit-btn {
+    background-color: #59595a;
+  }
+  .field-email{
+    width: 235px;
+  }
+  mat-label{
+    color: $textColor;
+  }
+  .error-message {
+    border: 2px solid #F44336;
+    text-align: center;
+  }
+  mat-card-actions {
+    display: flex;
+    justify-content: space-around;
+  }

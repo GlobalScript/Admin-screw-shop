@@ -1,0 +1,39 @@
+@import '../../app.component.scss';
+
+table {
+    margin:0 20px 20px 20px;
+    width: 95%;
+    border-collapse: collapse;
+    color: $textColor;
+  }
+td {
+    padding: 10px;
+    border-bottom: 1px solid rgb(80, 73, 73);
+}
+.table-date {
+    margin-right: 50px;
+}
+.table-phone {
+    width: 60%;
+}
+.table-order button {
+    margin-right:100px;
+}
+.search-input {
+    margin: 20px 0 0 20px;
+    width: 95%;
+    & button {
+        color: $textColor;
+    }
+}
+.table-custom-btn button{
+    text-decoration: none;
+    color: $textColor;
+    
+}
+.refresh {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    margin: 20px 20px 30px 0;
+ }

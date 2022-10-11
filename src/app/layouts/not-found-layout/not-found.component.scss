@@ -1,0 +1,10 @@
+@import '../../app.component.scss';
+mat-card {
+    height: 95%;
+}
+mat-card-title {
+    margin-top: 300px !important;
+    color: $textColor;
+    text-align: center;
+    font-size: 40px;
+}

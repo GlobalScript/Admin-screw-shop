@@ -1,0 +1,42 @@
+@import '../../app.component.scss';
+
+table {
+    color: $textColor;
+    margin:20px;
+    width: 95%;
+    border-collapse: collapse;
+  }
+td {
+    padding: 20px;
+    border-bottom: 1px solid rgb(80, 73, 73);
+}
+.table-name {
+    width: 100px;
+}
+.table-role {
+    color: $selectColor;
+    width: 100px;
+}
+.table-btn {
+    color: $textColor;
+    margin: 50px;
+}
+.btn-delete {
+    width: 50px;
+    & button {
+        background-color: rgb(102, 98, 98);
+    }
+}
+.selectUser {
+    color: $warningColor;
+}
+button {
+    color: $textColor;
+}
+.refresh {
+   position: fixed;
+   right: 0;
+   bottom: 0;
+   margin: 20px 20px 30px 0;
+}
+

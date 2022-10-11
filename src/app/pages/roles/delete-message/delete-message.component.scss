@@ -1,0 +1,23 @@
+@import '../../../app.component.scss';
+mat-card {
+    width: 200px;
+    height: 100px;
+    border: 2px solid $warningColor;
+    position: fixed; 
+    top: 200px;
+    right: 0;
+    bottom: 0;
+    left: 800px;
+    transition: all 0.5s ease;
+}
+.delete-close{
+    background-color: rgb(87, 87, 87);
+}
+mat-card-actions {
+    display: flex;
+    justify-content: space-between;
+}
+mat-card-subtitle {
+    font-size: 25px;
+    text-align: center;
+}

@@ -1,0 +1,49 @@
+<form  class="form-container" [formGroup]="form">
+    <mat-card>
+      <mat-card-header>
+        <mat-card-title><h2>Registration</h2></mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <div class="form-field">
+            <mat-form-field appearance="outline" class="field-email" focused color="accent">
+              <mat-label>First name</mat-label>
+              <input matInput formControlName="firstname">
+              <mat-error>First name is required</mat-error>
+            </mat-form-field>
+        </div>
+        <div class="form-field">
+            <mat-form-field appearance="outline" class="field-email" focused color="accent">
+                <mat-label>Last Name</mat-label>
+                <input matInput formControlName="lastname">
+                <mat-error>Last name is required</mat-error>
+            </mat-form-field>
+        </div>
+        <div class="form-field">
+          <mat-form-field appearance="outline" class="field-email" focused color="accent">
+            <mat-label>Email</mat-label>
+            <input matInput placeholder="pat@example.com" formControlName="email" (focus)="registrError = false">
+            <mat-error>the mail is not valid</mat-error>
+          </mat-form-field>
+        </div>
+          <div class="form-field">
+            <mat-form-field appearance="outline" color="accent">
+                <mat-label>Password</mat-label>
+                <input matInput [type]="hide ? 'password' : 'text'" formControlName="password">
+                <button mat-icon-button matSuffix (click)="toggleHide($event)" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                  <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                </button>
+                <mat-error>the password must contain numbers and Latin letters and consist of 8 characters</mat-error>
+              </mat-form-field>
+              <mat-card class="error-message" *ngIf="registrError"  >
+                <span>Email already exists</span> 
+              </mat-card>
+        </div>
+      </mat-card-content>
+      <mat-card-actions>
+        <button (click)="formSubmit($event)"
+         mat-raised-button [disabled]="form.invalid || form.disabled || registrError"
+          class="submit-btn">Submit</button>
+          <a routerLink="../..//"><button  mat-raised-button class="submit-btn">Go Back</button></a>
+      </mat-card-actions>
+    </mat-card>
+  </form>

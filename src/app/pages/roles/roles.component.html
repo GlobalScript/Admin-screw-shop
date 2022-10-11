@@ -1,0 +1,33 @@
+<table mat-table>
+        <tr *ngFor="let item of users" 
+        [class.selectUser]="deleteMessage && item._id === id"
+        >
+        <td class="btn-delete">
+            <button  [class.selectUser]="deleteMessage && item._id === id" mat-mini-fab  (click)="deleteUser(item._id)" [disabled]="item.roles === 'admin'">
+                <mat-icon>close</mat-icon>
+              </button>
+        </td>
+        <td class="table-role">{{item.roles}}</td>
+        <td class="table-name"><span>{{item.firstname}}</span></td>
+        <td class="table-name"><span>{{item.lastname}}</span></td>
+        <td class="table-btn"><button  mat-raised-button [disabled]="true">Admin</button></td>
+        <td class="table-btn">
+          <button  mat-raised-button
+          [disabled]="item.roles === 'admin' || item.roles === 'moderator'"
+            (click)="updateRole(item._id, 'moderator')"
+           >Moderator</button></td>
+        <td class="table-btn">
+          <button  mat-raised-button
+           [disabled]="item.roles === 'admin' || item.roles === 'manager'"
+           (click)="updateRole(item._id, 'manager')"
+           >Manager</button></td>
+      </tr>
+  </table>
+<app-delete-message 
+ *ngIf="deleteMessage"
+  (onClose)="deleteMessage = false"
+  (onDelete)="removeUser()"
+  ></app-delete-message>
+  <button class="refresh" mat-mini-fab color="accent" (click)="refresh()"><mat-icon>refresh</mat-icon></button>
+  
+

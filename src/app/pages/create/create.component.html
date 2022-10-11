@@ -1,0 +1,56 @@
+ <form class="product-form" [formGroup]="form">
+    <mat-card>
+        <mat-card-content>
+            <mat-card-title>Create</mat-card-title>
+    <mat-form-field appearance="fill" color="accent">
+            <mat-label>Short</mat-label>
+            <textarea matInput formControlName="short"></textarea>
+    </mat-form-field>
+    <mat-form-field appearance="fill" color="accent">
+            <mat-label>Price</mat-label>
+            <input matInput type="number" formControlName="price">
+    </mat-form-field>
+    <mat-form-field appearance="fill" color="accent">
+            <mat-label>Categories</mat-label>
+            <mat-select formControlName="category">
+            <mat-option value="fittings">Fittings</mat-option>
+            <mat-option value="bolts-nuts">Bolts Nuts</mat-option>
+            <mat-option value="screws">Screws</mat-option>
+            </mat-select>
+    </mat-form-field>
+    <mat-form-field appearance="fill" color="accent">
+            <mat-label>Description</mat-label>
+            <textarea matInput formControlName="description"></textarea>
+    </mat-form-field>
+    <mat-card-actions>
+        <button class="btn"
+          mat-raised-button [disabled]="form.invalid || closeCard || errorFile"
+           (click)="submit()" >Submit</button>
+    </mat-card-actions>
+    </mat-card-content>
+    <mat-card-content>
+        <mat-card class="mat-card-img">
+            <img [src]="imageSrc" *ngIf="imageSrc && !errorFile" >
+            <div *ngIf="errorFile">
+                <h4>Error file</h4>
+                <p>The file does not match the parameters</p>
+                <ul>
+                    <li>Max size - 100kb</li>
+                    <li>Type image/jpeg</li>
+                    <li>Type image/png </li>
+                </ul>   
+            </div>
+        </mat-card>
+        <mat-card-actions class="add-image-btn-field">
+            <button class="btn" mat-button (click)="inputFile.click()">Add image</button>
+        </mat-card-actions>
+                <input #inputFile
+                formControlName="file"
+                id="file"
+                type="file"
+                class="input-file"
+                (change)="onFileChange($event)">
+    </mat-card-content>
+    </mat-card>
+</form>
+<app-prod-card *ngIf="closeCard" (onClose)="closesCard()" [card] = "dataCard"></app-prod-card>  

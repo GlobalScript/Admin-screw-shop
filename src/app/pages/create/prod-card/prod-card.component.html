@@ -1,0 +1,24 @@
+<mat-card class="example-card">
+    <img mat-card-image [src]="card.image0" alt="photo is missing">
+    <mat-card-content>
+        <h3 class="short-product">Short</h3>
+        <div class="description-card">
+      <p>
+        {{card.short}}
+      </p>
+    </div>
+    <h3>Category:&nbsp; {{card.category}}</h3>
+    <h3>Price:&nbsp; {{card.price}} &nbsp;&#36;</h3>
+    </mat-card-content>
+    <mat-card-actions>
+        <button mat-mini-fab
+         color="primary"
+         aria-label="Example icon button with a menu icon"
+         class="close-btn"
+         (click)="close()"
+         >
+            <mat-icon>close</mat-icon>
+          </button>
+    </mat-card-actions>
+  </mat-card>
+

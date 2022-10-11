@@ -1,0 +1,53 @@
+    <form  class="form-container" [formGroup]="form">
+    <mat-card>
+      <mat-card-header>
+        <mat-card-title><h2>Login</h2></mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <div class="form-field">
+          <mat-form-field appearance="outline" class="field-email" focused color="accent">
+            <mat-label>Enter your email</mat-label>
+            <input matInput placeholder="pat@example.com" formControlName="email" (focus)="loginError = false">
+            <mat-error>the mail is not valid</mat-error>
+          </mat-form-field>
+          </div>
+          <div class="form-field">
+            <mat-form-field appearance="outline" color="accent">
+                <mat-label>Enter your password</mat-label>
+                <input matInput [type]="hide ? 'password' : 'text'" formControlName="password" (focus)="loginError = false">
+                <button mat-icon-button matSuffix (click)="toggleHide($event)" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                  <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                </button>
+                <mat-error>the password must contain numbers and Latin letters and consist of 8 characters</mat-error>
+              </mat-form-field>
+              <mat-card class="error-message" *ngIf="loginError"  >
+                <span>Wrong pasword or email</span> 
+              </mat-card>  
+          </div>
+      </mat-card-content>
+      <mat-card-actions>
+        <button (click)="formSubmit($event)"
+         mat-raised-button [disabled]="form.invalid || form.disabled || loginError"
+          class="submit-btn">Submit</button>
+          <a routerLink="../..//"><button  mat-raised-button class="submit-btn">Go Back</button></a>
+      </mat-card-actions>
+    </mat-card>
+  </form>
+
+  <mat-card class="example-card" *ngIf="message">
+    <mat-card-content>
+        <p>To log in, you must be an administrator, moderator, or manager. To grant status, contact the administrator.</p>
+    </mat-card-content>
+    <mat-card-actions>
+        <button mat-mini-fab
+         color="primary"
+         class="close-btn"
+         (click)="message = false"
+         >
+            <mat-icon>close</mat-icon>
+          </button>
+    </mat-card-actions>
+  </mat-card>
+  
+
+

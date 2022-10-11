@@ -1,0 +1,11 @@
+<mat-drawer-container>
+    <mat-drawer-content>
+    <router-outlet></router-outlet>
+    </mat-drawer-content>
+</mat-drawer-container>
+<app-footer>
+    <a *ngIf="!link" routerLink="/authorization/login">Login</a>  
+    <a *ngIf="link" routerLink="/authorization/registration">Registration</a>  
+</app-footer>
+
+

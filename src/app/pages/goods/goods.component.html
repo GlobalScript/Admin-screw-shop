@@ -1,0 +1,32 @@
+
+  <mat-form-field class="search-input" appearance="fill" color="accent">
+    <mat-label>Search</mat-label>
+    <input type="text" matInput  placeholder="Search" [(ngModel)]="inputSearch">
+    <button *ngIf="inputSearch" matSuffix mat-icon-button aria-label="Clear" (click)="inputSearch=''">
+      <mat-icon>close</mat-icon>
+    </button>
+  </mat-form-field>
+<table mat-table>
+    <tr *ngFor="let item of list | searchGoods: inputSearch" 
+      [class.selectProduct]="closesEdit && item.id === id"
+      [class.deleteProduct]="closesMessage && item.id === id"
+      >
+        <td class="table-img"><img [src]="item.image0" alt=""></td>
+        <td class="table-short"><span>{{item.short}}</span> </td>
+        <td class="table-price"><span>{{item.price}}&nbsp;&#36;</span></td>
+        <td class="table-category"><span>{{item.category}}</span></td>
+        <td class="table-edit">
+          <button
+           [disabled]="closesEdit || closesMessage"
+           mat-raised-button 
+           (click)="openEdit(item)"
+           >Edit</button></td> 
+        <td class="table-delete">
+          <button [disabled]="closesEdit || closesMessage"
+                  mat-raised-button
+                  (click)="openMessage(item.id, item.image0)">Delete</button>
+        </td>
+      </tr>
+  </table>
+  <app-edit (onClose)="closeEdit()" (onSubmit)="editHandler()" *ngIf="closesEdit" [editForm]="editForm"></app-edit>
+  <app-delete (onClose)="closeMessage()" *ngIf="closesMessage" (onDelete)="deleteHandler()" [params]="params"></app-delete>

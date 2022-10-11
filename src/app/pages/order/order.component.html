@@ -1,0 +1,32 @@
+<mat-form-field class="search-input" appearance="fill" color="accent">
+    <mat-label>Search</mat-label>
+    <input type="text" matInput  placeholder="Search" [(ngModel)]="inputSearch">
+    <button *ngIf="inputSearch" matSuffix mat-icon-button aria-label="Clear" (click)="inputSearch=''">
+      <mat-icon>close</mat-icon>
+    </button>
+  </mat-form-field>
+  <div class="info">
+    <div class="order-unit"><span>Order&nbsp;{{user.phone_number | regMatch}}</span></div>
+    <div class="order-unit"><span>Total price&nbsp; {{totalPrice}}&nbsp;&#36;</span></div>
+  </div>
+  <div class="persone">
+    <div class="order-unit"><span>Phone&nbsp;{{user.phone_number | phoneFormat}}</span></div>
+    <div class="order-unit"><span>Name&nbsp;{{user.first_name}}&nbsp;{{user.last_name}}</span></div>
+  </div>
+  <table mat-table>
+    <tr *ngFor="let item of userCart | searchGoods: inputSearch"
+      >
+        <td class="table-img"><img [src]="item.image0" alt=""></td>
+        <td class="table-short"><span>{{item.short}}</span> </td>
+        <td class="table-edit">
+           <span>{{item.count}}</span>
+        </td> 
+        <td class="table-price"><span>{{item.price}}&nbsp;&#36;</span></td>
+      </tr>
+  </table>
+
+<div class="btn-field">
+    <a *ngIf="!disabled" routerLink="/admin/customers"><button mat-raised-button>Close</button></a>
+    <button [disabled]="disabled" mat-raised-button (click)="submitOrder('done')">Done</button>
+    <button [disabled]="disabled" mat-raised-button (click)="submitOrder('')">Delete Order</button>
+</div>

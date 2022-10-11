@@ -1,0 +1,21 @@
+@import '../../app.component.scss';
+* {
+    color: $textColor;
+}
+mat-toolbar {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background-color: rgb(98, 94, 91);
+}
+mat-toolbar-row{
+    display: flex;
+    justify-content: space-between;
+}
+.example-spacer {
+      flex: 1 1 auto;
+}
+a {
+    text-decoration: none;
+    color: $textColor;
+}

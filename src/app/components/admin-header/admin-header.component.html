@@ -1,0 +1,28 @@
+<mat-toolbar>
+    <mat-toolbar-row>
+      <button mat-icon-button (click)="toggler()">
+        <mat-icon>menu</mat-icon>
+      </button>
+      <span class="example-spacer"></span>
+      <div>
+        <ul>
+          <li>
+            <button
+              mat-button
+              [matMenuTriggerFor]="menu"
+              class="user"
+              >
+             {{user?.firstname}}
+              <mat-icon>keyboard_arrow_down</mat-icon>
+            </button>
+            <mat-menu #menu="matMenu">
+              <button mat-menu-item (click)="logout()">
+                <mat-icon>exit_to_app</mat-icon>
+                Logout
+              </button>
+            </mat-menu>
+          </li>
+        </ul>
+      </div>
+    </mat-toolbar-row>
+  </mat-toolbar>
